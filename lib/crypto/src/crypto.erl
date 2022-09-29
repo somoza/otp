@@ -425,6 +425,7 @@
 -type sha2() :: sha224 | sha256 | sha384 | sha512 .
 -type sha3() :: sha3_224 | sha3_256 | sha3_384 | sha3_512 .
 -type sha3_xof() :: shake128 | shake256 .
+-type sha3_keccak() :: keccak256 .
 -type blake2() :: blake2b | blake2s .
 
 -type compatibility_only_hash() :: md5 | md4 .
@@ -529,7 +530,7 @@ stop() ->
                                       | {macs,    Macs}
                                       | {curves,  Curves}
                                       | {rsa_opts, RSAopts},
-                             Hashs :: [sha1() | sha2() | sha3() | sha3_xof() | blake2() | ripemd160 | compatibility_only_hash()],
+                             Hashs :: [sha1() | sha2() | sha3() | sha3_xof() | sha3_keccak() | blake2() | ripemd160 | compatibility_only_hash()],
                              Ciphers :: [cipher()],
                              PKs :: [rsa | dss | ecdsa | dh | ecdh | eddh | ec_gf2m],
                              Macs :: [hmac | cmac | poly1305],
@@ -559,7 +560,7 @@ supports() ->
                                       | Macs
                                       | Curves
                                       | RSAopts,
-                             Hashs :: [sha1() | sha2() | sha3() | sha3_xof() | blake2() | ripemd160 | compatibility_only_hash()],
+                             Hashs :: [sha1() | sha2() | sha3() | sha3_xof() | sha3_keccak() | blake2() | ripemd160 | compatibility_only_hash()],
                              Ciphers :: [cipher()],
                              PKs :: [rsa | dss | ecdsa | dh | ecdh | eddh | ec_gf2m],
                              Macs :: [hmac | cmac | poly1305],
@@ -622,7 +623,7 @@ pbkdf2_hmac_nif(_, _, _, _, _) -> ?nif_stub.
 %%%
 %%%================================================================
 
--type hash_algorithm() :: sha1() | sha2() | sha3() | sha3_xof() | blake2() | ripemd160 | compatibility_only_hash() .
+-type hash_algorithm() :: sha1() | sha2() | sha3() | sha3_xof() | sha3_keccak() | blake2() | ripemd160 | compatibility_only_hash() .
 -type hash_xof_algorithm() :: sha3_xof() .
 
 -spec hash_info(Type) -> Result

@@ -181,6 +181,9 @@
 # ifdef NID_sha3_256
 #  define HAVE_SHA3_256
 # endif
+# ifdef NID_keccak_256
+#  define HAVE_KECCAK_256
+# endif
 # ifdef NID_shake128
 #  define HAVE_SHAKE128
 # endif

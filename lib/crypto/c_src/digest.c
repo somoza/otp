@@ -130,6 +130,14 @@ static struct digest_type_t digest_types[] =
 #endif
     },
 
+    {"keccak256", "KECCAK-256", 0, 0,
+#ifdef HAVE_KECCAK256
+    {&EVP_MD-KECCAK, NULL}
+#else
+    {NULL,NULL}
+#endif
+    },
+
     {"blake2b", "BLAKE2b512", 0, 0,
 #ifdef HAVE_BLAKE2
      {&EVP_blake2b512,NULL}

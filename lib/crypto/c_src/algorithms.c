@@ -119,6 +119,9 @@ void init_hash_types(ErlNifEnv* env) {
 #ifdef HAVE_SHAKE256
     algo_hash[algo_hash_cnt++] = enif_make_atom(env, "shake256");
 #endif
+#ifdef HAVE_KECCAK256
+    algo_hash[algo_hash_cnt++] = enif_make_atom(env, "keccak256");
+#endif
 #ifdef HAVE_BLAKE2
     algo_hash[algo_hash_cnt++] = enif_make_atom(env, "blake2b");
     algo_hash[algo_hash_cnt++] = enif_make_atom(env, "blake2s");
